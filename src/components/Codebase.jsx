@@ -5,26 +5,18 @@ export default function Codebase() {
 
   const repos = [
     {
-      name: 'fastapi-microservice-boilerplate',
-      desc: 'High-performance template for async microservices using FastAPI, SQLAlchemy ORM (PostgreSQL), JWT authentication, and PyTest suites.',
-      stars: 42,
-      forks: 18,
+      name: 'expense_tracker_fastapi',
+      desc: 'High-performance expense tracking backend API engineered with FastAPI, asynchronous database connections, SQLAlchemy ORM, and PostgreSQL migrations.',
+      stars: 12,
+      forks: 3,
       language: 'Python',
       langColor: '#3572A5',
     },
     {
-      name: 'opsview-plugin-containerizer',
-      desc: 'Dockerized framework and automated builder for Python telemetry and device monitoring plugins, compatible with Opsview.',
-      stars: 28,
-      forks: 9,
-      language: 'Python',
-      langColor: '#3572A5',
-    },
-    {
-      name: 'cyberark-active-directory-sync',
-      desc: 'Secure credential provisioning engine linking CyberArk PAM custom automation workflows directly with Active Directory configurations.',
-      stars: 35,
-      forks: 11,
+      name: 'devtrack',
+      desc: 'Developer activity tracker and workflow logger built to automate CMDB actions, monitor device updates, and capture code metrics telemetry.',
+      stars: 18,
+      forks: 5,
       language: 'Python',
       langColor: '#3572A5',
     }
