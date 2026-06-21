@@ -46,7 +46,7 @@ export default function Header({ theme, toggleTheme, onOpenNewsletter }) {
           {scrolled && (
             <div className="header-scrolled-actions animate-fade-in">
               <a 
-                href="https://drive.google.com/file/d/1FM1_YGj8dEm2JMIy3Vpt-BYweAgiY_6L/view?usp=drive_link" 
+                href="https://drive.google.com/file/d/1FM1_YGj8dEm2JMIy3Vpt-BYweAgiY_6L/view?usp=sharing" 
                 target="_blank" 
                 rel="noreferrer" 
                 className="btn-header-resume"

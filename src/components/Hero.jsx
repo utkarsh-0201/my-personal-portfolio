@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 
 export default function Hero({ onOpenNewsletter }) {
   const titles = [
-    'Senior Software Engineer (Python)',
+    'Senior Software Engineer & AI Generalist',
     'Full Stack Python Developer',
     'Platform Security Professional',
-    'Backend & Automation Architect'
+    'Backend, Automation & RAG Architect'
   ];
 
   const [titleIndex, setTitleIndex] = useState(0);
@@ -50,9 +50,9 @@ export default function Hero({ onOpenNewsletter }) {
             <span className="cursor">|</span>
           </div>
           <p className="hero-desc">
-            Results-driven Full Stack Python Developer with <strong>10+ years</strong> of experience engineering 
+            Results-driven Full Stack Python Developer and <strong>AI Generalist</strong> with <strong>10+ years</strong> of experience engineering 
             high-performance, scalable backend services, robust automation tooling, and RESTful APIs using FastAPI and Flask. 
-            Proven expertise in optimizing development workflows, asynchronous programming (asyncio), CI/CD pipelines, and secure credential workflows.
+            Currently leveraging AI to build a Retrieval-Augmented Generation (RAG) workflow to provide SOC assistance for security device monitoring (In Progress).
           </p>
           <div className="hero-buttons">
             <a href="#contact" className="btn-primary">
@@ -62,7 +62,7 @@ export default function Hero({ onOpenNewsletter }) {
               </svg>
             </a>
             
-            <a href="https://drive.google.com/file/d/1FM1_YGj8dEm2JMIy3Vpt-BYweAgiY_6L/view?usp=drive_link" target="_blank" rel="noreferrer" className="btn-secondary">
+            <a href="https://drive.google.com/file/d/1FM1_YGj8dEm2JMIy3Vpt-BYweAgiY_6L/view?usp=sharing" target="_blank" rel="noreferrer" className="btn-secondary">
               View Resume
               <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />

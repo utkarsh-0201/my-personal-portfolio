@@ -11,6 +11,13 @@ export default function About() {
       period: 'April 2020 – Present',
       projects: [
         {
+          name: 'AI-Driven SOC Assistance & RAG Workflows (In Progress)',
+          bullets: [
+            'Currently leveraging AI to design and build a Retrieval-Augmented Generation (RAG) agent workflow to provide intelligent assistance for Security Operations Center (SOC) logs and real-time security device monitoring.',
+            'Developing context-aware search pipelines that parse incoming security telemetry streams to correlate threats and suggest remediation actions, significantly accelerating threat analysis latency.'
+          ]
+        },
+        {
           name: 'FastAPI Microservices, Workflow Automation & CMDB Integration',
           bullets: [
             'Designed and engineered high-throughput, async API endpoints using Python asyncio and FastAPI, establishing critical core backend services and reducing processing bottlenecks for enterprise traffic.',
@@ -123,7 +130,7 @@ export default function About() {
               </div>
               <div className="about-bio-brief">
                 <h3>Utkarsh Singh</h3>
-                <p>Senior Software Engineer & Platform Security Professional</p>
+                <p>Senior Software Engineer, Platform Security & AI Generalist</p>
                 <div className="about-meta-info">
                   <span className="meta-badge">10+ Years Exp</span>
                   <span className="meta-badge">Gurugram, IN</span>
