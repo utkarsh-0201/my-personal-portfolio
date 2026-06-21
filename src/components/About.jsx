@@ -113,116 +113,139 @@ export default function About() {
       <div className="container">
         <h2 className="section-title">About & Experience</h2>
 
-        {/* Tab Buttons */}
-        <div className="about-tabs">
-          <button
-            className={`tab-btn ${activeTab === 'experience' ? 'active' : ''}`}
-            onClick={() => setActiveTab('experience')}
-          >
-            Work Experience
-          </button>
-          <button
-            className={`tab-btn ${activeTab === 'education' ? 'active' : ''}`}
-            onClick={() => setActiveTab('education')}
-          >
-            Education & Certifications
-          </button>
-          <button
-            className={`tab-btn ${activeTab === 'achievements' ? 'active' : ''}`}
-            onClick={() => setActiveTab('achievements')}
-          >
-            Key Achievements
-          </button>
-        </div>
+        <div className="about-layout-grid">
+          {/* Profile Picture Card */}
+          <div className="about-pic-col animate-fade-in">
+            <div className="glass-card about-pic-card">
+              <div className="about-pic-frame">
+                <img src="/avatar.png" alt="Utkarsh Singh" className="about-pic" />
+                <div className="about-pic-glow"></div>
+              </div>
+              <div className="about-bio-brief">
+                <h3>Utkarsh Singh</h3>
+                <p>Senior Software Engineer & Platform Security Professional</p>
+                <div className="about-meta-info">
+                  <span className="meta-badge">10+ Years Exp</span>
+                  <span className="meta-badge">Gurugram, IN</span>
+                </div>
+              </div>
+            </div>
+          </div>
 
-        {/* Tab Contents */}
-        <div className="tab-content">
-          {activeTab === 'experience' && (
-            <div className="timeline">
-              {experiences.map((exp, idx) => (
-                <div key={idx} className="timeline-item glass-card">
-                  <div className="timeline-dot"></div>
-                  <div className="timeline-header">
-                    <div>
-                      <h3 className="timeline-role">{exp.role}</h3>
-                      <h4 className="timeline-company">{exp.company}</h4>
+          {/* Biography Content / Timeline */}
+          <div className="about-content-col">
+            {/* Tab Buttons */}
+            <div className="about-tabs">
+              <button
+                className={`tab-btn ${activeTab === 'experience' ? 'active' : ''}`}
+                onClick={() => setActiveTab('experience')}
+              >
+                Work Experience
+              </button>
+              <button
+                className={`tab-btn ${activeTab === 'education' ? 'active' : ''}`}
+                onClick={() => setActiveTab('education')}
+              >
+                Education & Certifications
+              </button>
+              <button
+                className={`tab-btn ${activeTab === 'achievements' ? 'active' : ''}`}
+                onClick={() => setActiveTab('achievements')}
+              >
+                Key Achievements
+              </button>
+            </div>
+
+            {/* Tab Contents */}
+            <div className="tab-content">
+              {activeTab === 'experience' && (
+                <div className="timeline">
+                  {experiences.map((exp, idx) => (
+                    <div key={idx} className="timeline-item glass-card">
+                      <div className="timeline-dot"></div>
+                      <div className="timeline-header">
+                        <div>
+                          <h3 className="timeline-role">{exp.role}</h3>
+                          <h4 className="timeline-company">{exp.company}</h4>
+                        </div>
+                        <div className="timeline-meta">
+                          <span className="timeline-period">{exp.period}</span>
+                          <span className="timeline-location">{exp.location}</span>
+                        </div>
+                      </div>
+                      <div className="timeline-body">
+                        {exp.projects.map((proj, pIdx) => (
+                          <div key={pIdx} className="timeline-project">
+                            <h5 className="project-title">{proj.name}</h5>
+                            <ul className="project-bullets">
+                              {proj.bullets.map((bullet, bIdx) => (
+                                <li key={bIdx}>{bullet}</li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                    <div className="timeline-meta">
-                      <span className="timeline-period">{exp.period}</span>
-                      <span className="timeline-location">{exp.location}</span>
-                    </div>
+                  ))}
+                </div>
+              )}
+
+              {activeTab === 'education' && (
+                <div className="grid-cols-2">
+                  <div className="glass-card">
+                    <h3 className="card-heading-icon">
+                      <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" className="color-purple-svg">
+                        <path d="M12 14l9-5-9-5-9 5 9 5z" />
+                        <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                      </svg>
+                      Education
+                    </h3>
+                    {education.map((edu, idx) => (
+                      <div key={idx} className="education-item">
+                        <h4 className="edu-degree">{edu.degree}</h4>
+                        <p className="edu-institution">{edu.institution} | <span className="text-highlight">{edu.period}</span></p>
+                        <p className="edu-details">{edu.details}</p>
+                      </div>
+                    ))}
                   </div>
-                  <div className="timeline-body">
-                    {exp.projects.map((proj, pIdx) => (
-                      <div key={pIdx} className="timeline-project">
-                        <h5 className="project-title">{proj.name}</h5>
-                        <ul className="project-bullets">
-                          {proj.bullets.map((bullet, bIdx) => (
-                            <li key={bIdx}>{bullet}</li>
-                          ))}
-                        </ul>
+
+                  <div className="glass-card">
+                    <h3 className="card-heading-icon">
+                      <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" className="color-cyan-svg">
+                        <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                      </svg>
+                      Certifications
+                    </h3>
+                    {certifications.map((cert, idx) => (
+                      <div key={idx} className="cert-item">
+                        <h4 className="cert-name">{cert.name}</h4>
+                        <p className="cert-issuer">{cert.issuer} | <span className="text-highlight">{cert.date}</span></p>
+                        <p className="cert-details">{cert.details}</p>
                       </div>
                     ))}
                   </div>
                 </div>
-              ))}
-            </div>
-          )}
+              )}
 
-          {activeTab === 'education' && (
-            <div className="grid-cols-2">
-              <div className="glass-card">
-                <h3 className="card-heading-icon">
-                  <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" className="color-purple-svg">
-                    <path d="M12 14l9-5-9-5-9 5 9 5z" />
-                    <path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                  </svg>
-                  Education
-                </h3>
-                {education.map((edu, idx) => (
-                  <div key={idx} className="education-item">
-                    <h4 className="edu-degree">{edu.degree}</h4>
-                    <p className="edu-institution">{edu.institution} | <span className="text-highlight">{edu.period}</span></p>
-                    <p className="edu-details">{edu.details}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="glass-card">
-                <h3 className="card-heading-icon">
-                  <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" className="color-cyan-svg">
-                    <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                  </svg>
-                  Certifications
-                </h3>
-                {certifications.map((cert, idx) => (
-                  <div key={idx} className="cert-item">
-                    <h4 className="cert-name">{cert.name}</h4>
-                    <p className="cert-issuer">{cert.issuer} | <span className="text-highlight">{cert.date}</span></p>
-                    <p className="cert-details">{cert.details}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {activeTab === 'achievements' && (
-            <div className="grid-cols-2">
-              {achievements.map((ach, idx) => (
-                <div key={idx} className="glass-card achievement-card">
-                  <div className="achievement-icon">
-                    <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                      <path d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5a2 2 0 10-2 2h2zm0 8h.01M12 12h.01" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="achievement-title">{ach.title}</h4>
-                    <p className="achievement-desc">{ach.desc}</p>
-                  </div>
+              {activeTab === 'achievements' && (
+                <div className="grid-cols-2">
+                  {achievements.map((ach, idx) => (
+                    <div key={idx} className="glass-card achievement-card">
+                      <div className="achievement-icon">
+                        <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                          <path d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5a2 2 0 10-2 2h2zm0 8h.01M12 12h.01" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h4 className="achievement-title">{ach.title}</h4>
+                        <p className="achievement-desc">{ach.desc}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              )}
             </div>
-          )}
+          </div>
         </div>
       </div>
     </section>
