@@ -36,7 +36,7 @@ function App() {
 
   return (
     <>
-      <Header theme={theme} toggleTheme={toggleTheme} />
+      <Header theme={theme} toggleTheme={toggleTheme} onOpenNewsletter={() => setNewsletterOpen(true)} />
       <main>
         <Hero onOpenNewsletter={() => setNewsletterOpen(true)} />
         <About />

@@ -1,6 +1,30 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+const CopyIcon = () => (
+  <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" style={{ display: 'block' }}>
+    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+    <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
+  </svg>
+);
+
+const CheckIcon = () => (
+  <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" style={{ display: 'block' }}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+  </svg>
+);
 
 export default function Contact() {
+  const [copiedType, setCopiedType] = useState(null);
+
+  const handleCopy = (e, text, type) => {
+    e.preventDefault();
+    e.stopPropagation();
+    navigator.clipboard.writeText(text).then(() => {
+      setCopiedType(type);
+      setTimeout(() => setCopiedType(null), 2000);
+    });
+  };
+
   return (
     <section id="contact" className="section contact-section">
       <div className="container contact-container">
@@ -10,25 +34,45 @@ export default function Contact() {
             I am always open to discussing new opportunities, platform security integrations, automation pipeline optimizations, or full-stack Python architectures. Reach out directly using any of the channels below:
           </p>
           <div className="contact-channels-grid">
-            <a href="mailto:utkrshsingh.29@gmail.com" className="contact-channel-item">
+            <div className="contact-channel-item">
               <div className="channel-icon-circle cyan">
                 <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
               </div>
               <span className="channel-label">Email</span>
-              <span className="channel-value">utkrshsingh.29@gmail.com</span>
-            </a>
+              <div className="channel-value-container">
+                <a href="mailto:utkrshsingh.29@gmail.com" className="channel-value-link">utkrshsingh.29@gmail.com</a>
+                <button 
+                  className={`copy-btn ${copiedType === 'email' ? 'copied' : ''}`}
+                  onClick={(e) => handleCopy(e, 'utkrshsingh.29@gmail.com', 'email')}
+                  title="Copy email to clipboard"
+                  aria-label="Copy email"
+                >
+                  {copiedType === 'email' ? <CheckIcon /> : <CopyIcon />}
+                </button>
+              </div>
+            </div>
             
-            <a href="tel:+919458053002" className="contact-channel-item">
+            <div className="contact-channel-item">
               <div className="channel-icon-circle purple">
                 <svg width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
               </div>
               <span className="channel-label">Phone</span>
-              <span className="channel-value">+91-9458053002</span>
-            </a>
+              <div className="channel-value-container">
+                <a href="tel:+919458053002" className="channel-value-link">+91-9458053002</a>
+                <button 
+                  className={`copy-btn ${copiedType === 'phone' ? 'copied' : ''}`}
+                  onClick={(e) => handleCopy(e, '+919458053002', 'phone')}
+                  title="Copy phone number to clipboard"
+                  aria-label="Copy phone"
+                >
+                  {copiedType === 'phone' ? <CheckIcon /> : <CopyIcon />}
+                </button>
+              </div>
+            </div>
 
             <div className="contact-channel-item">
               <div className="channel-icon-circle cyan">

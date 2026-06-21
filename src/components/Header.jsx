@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-export default function Header({ theme, toggleTheme }) {
+export default function Header({ theme, toggleTheme, onOpenNewsletter }) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -42,6 +42,23 @@ export default function Header({ theme, toggleTheme }) {
         </nav>
 
         <div className="header-actions">
+          {/* Scrolled Resume & Newsletter Buttons */}
+          {scrolled && (
+            <div className="header-scrolled-actions animate-fade-in">
+              <a 
+                href="https://drive.google.com/file/d/1FM1_YGj8dEm2JMIy3Vpt-BYweAgiY_6L/view?usp=drive_link" 
+                target="_blank" 
+                rel="noreferrer" 
+                className="btn-header-resume"
+              >
+                Resume
+              </a>
+              <button onClick={onOpenNewsletter} className="btn-header-newsletter">
+                Newsletter
+              </button>
+            </div>
+          )}
+
           {/* Theme Toggle */}
           <button onClick={toggleTheme} className="theme-toggle-btn" aria-label="Toggle Theme">
             {theme === 'dark' ? (
